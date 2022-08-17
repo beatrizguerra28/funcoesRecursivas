@@ -1,32 +1,32 @@
 - A)
 e '  :: [ Bool ] ->  Bool 
-e ' []  =  Falso 
-e '[x] = x
+e ' () =  True 
 e '(x : xs) = x && e' xs
 
 - B)
-concat '  :: [[ a ]] -> [ a ]
-concat ' []  =  []
-concat '(x : xs) = x ++ concat' xs
+concat2 []  =  []
+concat2 (x : xs) = x ++ concat2 xs
 
 - C)
-replicar '  ::  Int  ->  a  -> [ a ]
-replicar ' 0 y =  []
-replicar 'xy = y : replicar' (x - 1 ) y
+replicate2 0 _ = []
+replicate2  n v = v : replicate2 (n-1) v 
+
 
 - D)
 (!!!)  :: [ a ] ->  Int  ->  a
-(!!!) (x : xs) 0  = x
-(!!!) (x : xs) i = xs !!! (i - 1 )
+[] !!! _ = error "indice muito grande"
+(x:xs) !!! 0 = x
+(x:xs) !!! n = xs !!! (n - 1)
+
 
 - E)
 elem '  ::  Eq  a  =>  a  -> [ a ] ->  Bool
-elem 'e []  =  Falso
-elem 'e (q : qs)
-    | q == e =  Verdadeiro 
-    |  caso contrário  = elem 'e qs
+elem ' _ []  =  False
+elem ' v (x : xs)
+    | v == x =  True 
+    |  otherwise//caso contrário  = elem 'e v xs
 
-main  ::  IO  ()
+///main  ::  IO  ()
 main =  do
     print  $ e '[ True , True , True ]
     imprimir  $ concat '[[ 1 , 2 , 3 ], [ 4 , 5 , 6 ]]
