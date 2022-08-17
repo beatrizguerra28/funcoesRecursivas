@@ -1,11 +1,16 @@
 
-merge :: Ord a => [a] -> [a] -> [a]
-merge xs [] = xs
+///mergesort3 :: Ord a => [a] -> [a] -> [a]
+mergesort3 = xs [] = xs
 merge [] ys = ys
 merge (x:xs) (y:ys) = if x < y then x : merge xs (y:ys) else y : merge (x:xs) ys
 
-metades :: [a] -> ([a],[a])
-metades xs = splitAt (length xs `div` 2) xs
+metades3 l = (take n l, drop m l)
+            where
+                tamanho = length l
+                m = tamanho 'div' 2
+                n = tamanho - m
+                n = if tamanho % 2 == 0 then tamanho 
+metades3 xs = splitAt (length xs `div` 2) xs
 
 mergesort :: Ord a => [a] -> [a]
 mergesort []  = []
